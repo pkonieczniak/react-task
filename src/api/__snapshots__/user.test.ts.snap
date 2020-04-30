@@ -1,0 +1,17 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`getUsers returns the list of users 1`] = `
+Array [
+  undefined,
+  Array [
+    Object {
+      "id": 1,
+      "name": "foo",
+    },
+    Object {
+      "id": 2,
+      "name": "bar",
+    },
+  ],
+]
+`;

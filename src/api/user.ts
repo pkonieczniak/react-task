@@ -26,6 +26,8 @@ interface User {
 
 const resource = "users";
 
-export const getUsers = fetch(
-  `${process.env.REACT_APP_JSON_PLACEHOLDER_API_URL}${resource}`
-);
+export const getUsers = () => {
+  return fetch<[User]>(
+    `${process.env.REACT_APP_JSON_PLACEHOLDER_API_URL}${resource}`
+  );
+};
