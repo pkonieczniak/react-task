@@ -1,0 +1,12 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`renders Input component 1`] = `
+<input
+  data-testid="input"
+  id="foo"
+  name="foo"
+  placeholder="lorem ipsum"
+  type="text"
+  value=""
+/>
+`;
