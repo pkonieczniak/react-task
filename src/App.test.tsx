@@ -9,6 +9,6 @@ test("renders App component", () => {
 
 test("an URL for JSON placeholder api is defined", () => {
   expect(process.env.REACT_APP_JSON_PLACEHOLDER_API_URL).toEqual(
-    "https://jsonplaceholder/"
+    "https://jsonplaceholder.typicode.com/"
   );
 });
