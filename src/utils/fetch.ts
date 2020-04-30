@@ -1,14 +1,9 @@
 interface Fetch {
-  (
-    url: string,
-    options: {
-      method: string;
-    }
-  ): Promise<[string?, any?]>;
+  (url: string, options?: { method: string }): Promise<[string?, any?]>;
 }
 
 export const fetch: Fetch = async (url, options) => {
-  const { method = "GET" } = options;
+  const { method = "GET" } = options || {};
 
   let result, error;
 
