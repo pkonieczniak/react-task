@@ -17,6 +17,10 @@ describe("fetch", () => {
 
   describe("when the request succeed", () => {
     it("contains response data", async () => {
+      interface Foo {
+        foo: "bar";
+      }
+
       const fakeResponse = Promise.resolve({
         ok: true,
         json: () => Promise.resolve({ foo: "bar" }),
@@ -24,9 +28,10 @@ describe("fetch", () => {
 
       window.fetch = jest.fn().mockImplementation(() => fakeResponse);
 
-      const [error, result] = await fetch("/foo/bar");
+      const [error, result] = await fetch<Foo>("/foo/bar");
+
       expect(error).toBeUndefined();
-      expect(result).toStrictEqual({ foo: "bar" });
+      expect(result.foo).toEqual("bar");
 
       jest.clearAllMocks();
     });
