@@ -10,9 +10,13 @@ interface UsersListProps {
 
 export const UsersList: FC<UsersListProps> = ({ isLoading, error, users }) => {
   if (isLoading) return <Spinner />;
-  if (error) return <p>error</p>;
+  if (error) return <p style={{ marginLeft: "1.5rem" }}>error</p>;
   if (!users || !users.length)
-    return <p>No users found based on the search criteria. Try again</p>;
+    return (
+      <p style={{ marginLeft: "1.5rem" }}>
+        No users found based on the search criteria. Try again
+      </p>
+    );
 
   return (
     <ol>
