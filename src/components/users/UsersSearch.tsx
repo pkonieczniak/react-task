@@ -1,4 +1,4 @@
-import React, { FC, ChangeEvent } from "react";
+import React, { FC, ChangeEvent, Fragment } from "react";
 import { User } from "../../models/user";
 import { Input } from "../common/input";
 import { UsersList } from "./UsersList";
@@ -19,9 +19,9 @@ export const UsersSearch: FC<UsersSearchProps> = ({
   isLoading,
 }) => {
   return (
-    <div>
+    <Fragment>
       <Input name="users" type="text" onChange={onChange} value={inputValue} />
       <UsersList users={users} error={error} isLoading={isLoading} />
-    </div>
+    </Fragment>
   );
 };

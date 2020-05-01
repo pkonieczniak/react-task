@@ -42,8 +42,8 @@ export const App: FC = () => {
   );
 
   return (
-    <div>
-      <h1>Users</h1>
+    <div className="container">
+      <h1 className="center">Users List</h1>
       <UsersSearch
         onChange={onChange}
         users={filteredUsersSelector(state)}

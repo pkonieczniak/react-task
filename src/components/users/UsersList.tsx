@@ -19,7 +19,7 @@ export const UsersList: FC<UsersListProps> = ({ isLoading, error, users }) => {
       {users.map(({ id, name, username }) => {
         return (
           <li key={id}>
-            {name} @{username}
+            {name} <i>@{username}</i>
           </li>
         );
       })}
