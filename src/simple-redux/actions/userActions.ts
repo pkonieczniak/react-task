@@ -1,21 +1,30 @@
 import * as actionTypes from "./actionTypes";
 import { getUsers } from "../../api";
 
-export const loadingUsers = () => {
-  return { type: actionTypes.LOADING_USERS };
-};
+import { User } from "../../models/user";
+import { InitialState } from "../../models/initialState";
+import { Action } from "../../models/action";
 
-export const loadingUsersSucces = (users: any) => {
+export const loadingUsers = (): Action<InitialState> => {
   return {
-    type: actionTypes.LOADING_USERS_SUCCESS,
-    users,
+    type: actionTypes.LOADING_USERS,
+    payload: {},
   };
 };
 
-export const loadingUsersError = (error: string) => {
+export const loadingUsersSucces = (
+  users: User[] | undefined
+): Action<InitialState> => {
+  return {
+    type: actionTypes.LOADING_USERS_SUCCESS,
+    payload: { users },
+  };
+};
+
+export const loadingUsersError = (error: string): Action<InitialState> => {
   return {
     type: actionTypes.LOADING_USERS_ERROR,
-    error,
+    payload: { error },
   };
 };
 
