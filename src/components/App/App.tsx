@@ -1,13 +1,19 @@
-import React, { FC, useReducer, useEffect, ChangeEvent, useState } from "react";
+import React, {
+  FC,
+  useReducer,
+  useEffect,
+  useState,
+  useCallback,
+  ChangeEvent,
+} from "react";
 
+import { InitialState } from "../../models/initialState";
 import { reducer, initialState, loadUsers } from "../../simple-redux/";
+import { UsersSearch } from "../users";
 
 import "./App.css";
 
-import { UsersList } from "../users";
-import { Input } from "../common/input";
-
-export const App: FC<any> = () => {
+export const App: FC = () => {
   const [state, dispatch] = useReducer(reducer, initialState);
   const [inputValue, setInputValue] = useState("");
 
@@ -19,14 +25,30 @@ export const App: FC<any> = () => {
     setInputValue(event.target.value);
   };
 
+  const filteredUsersSelector = useCallback(
+    (state: InitialState) => {
+      if (!state.users) return [];
+      return state.users
+        .filter((user) =>
+          user.name.toLowerCase().includes(inputValue.toLowerCase())
+        )
+        .map((user) => ({
+          id: user.id,
+          username: user.username,
+          name: user.name,
+        }));
+    },
+    [inputValue]
+  );
+
   return (
     <div>
       <h1>Users</h1>
-      <Input name="users" type="text" onChange={onChange} />
-      <UsersList
-        users={state.users}
+      <UsersSearch
+        onChange={onChange}
+        users={filteredUsersSelector(state)}
         inputValue={inputValue}
-        error={state.error}
+        error={state.error || ""}
         isLoading={state.isLoading}
       />
     </div>

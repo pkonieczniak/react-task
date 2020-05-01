@@ -1,23 +1,27 @@
 import React, { FC } from "react";
 import { Spinner } from "../common";
+import { User } from "../../models/user";
 
-export const UsersList: FC<any> = (props) => {
-  if (props.isLoading) return <Spinner />;
-  if (props.error) return <p>props.error</p>;
-  if (!props.users || !props.users.length)
+interface UsersListProps {
+  users: Pick<User, "id" | "name" | "username">[];
+  error: string;
+  isLoading: boolean;
+}
+
+export const UsersList: FC<UsersListProps> = ({ isLoading, error, users }) => {
+  if (isLoading) return <Spinner />;
+  if (error) return <p>error</p>;
+  if (!users || !users.length)
     return <p>No users found based on the search criteria. Try again</p>;
-
-  let filteredList = [...props.users];
-  if (props.inputValue) {
-    filteredList = props.users.filter((user: any) =>
-      user.name.toLowerCase().includes(props.inputValue.toLowerCase())
-    );
-  }
 
   return (
     <ol>
-      {filteredList.map((user: any) => {
-        return <li key={user.id}>{user.name}</li>;
+      {users.map(({ id, name, username }) => {
+        return (
+          <li key={id}>
+            {name} @{username}
+          </li>
+        );
       })}
     </ol>
   );

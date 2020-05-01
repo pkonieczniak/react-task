@@ -1,1 +1,1 @@
-export { UsersList } from "./UsersList";
+export { UsersSearch } from "./UsersSearch";
