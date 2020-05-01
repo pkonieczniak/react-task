@@ -1,20 +1,24 @@
-import * as actionTypes from "./actionTypes";
+import {
+  LOADING_USERS,
+  LOADING_USERS_ERROR,
+  LOADING_USERS_SUCCESS,
+} from "./actionTypes";
 
 export const userReducer = (state: any, action: any) => {
-  if (actionTypes.LOADING_USERS) {
+  if (action.type === LOADING_USERS) {
     return {
       ...state,
       isLoading: true,
     };
   }
-  if (actionTypes.LOADING_USERS_SUCCESS) {
+  if (action.type === LOADING_USERS_SUCCESS) {
     return {
       ...state,
       isLoading: false,
       users: action.users,
     };
   }
-  if (actionTypes.LOADING_USERS_ERROR) {
+  if (action.type === LOADING_USERS_ERROR) {
     return {
       ...state,
       isLoading: false,
