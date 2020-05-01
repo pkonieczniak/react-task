@@ -1,10 +1,10 @@
-import React, { FC } from "react";
+import React, { FC, ChangeEvent } from "react";
 import "./Input.css";
 
 interface InputProps {
   name: string;
   type: string;
-  onChange(): void;
+  onChange(event: ChangeEvent<HTMLInputElement>): void;
   placeholder?: string;
   value?: string;
 }
