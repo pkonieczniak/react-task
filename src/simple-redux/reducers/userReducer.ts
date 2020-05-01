@@ -2,7 +2,7 @@ import {
   LOADING_USERS,
   LOADING_USERS_ERROR,
   LOADING_USERS_SUCCESS,
-} from "./actionTypes";
+} from "../actions/actionTypes";
 
 export const userReducer = (state: any, action: any) => {
   if (action.type === LOADING_USERS) {

@@ -1,4 +1,4 @@
-import { fetch } from "../utils";
+import { fetch } from "../../utils";
 
 interface User {
   id: number;

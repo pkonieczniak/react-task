@@ -1,5 +1,5 @@
 import * as actionTypes from "./actionTypes";
-import { getUsers } from "../api/user";
+import { getUsers } from "../../api";
 
 export const loadingUsers = () => {
   return { type: actionTypes.LOADING_USERS };

@@ -1,6 +1,6 @@
 // TODO: Improve mocking for the named imports, and clean up tests
 
-jest.mock("../utils", () => {
+jest.mock("../../utils", () => {
   return {
     __esModule: true,
     fetch: jest.fn(() =>
@@ -15,7 +15,7 @@ jest.mock("../utils", () => {
   };
 });
 
-import { getUsers } from "./user";
+import { getUsers } from ".";
 
 describe("getUsers", () => {
   it("returns the list of users", async () => {

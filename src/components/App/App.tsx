@@ -1,8 +1,6 @@
 import React, { FC, useReducer, useEffect, ChangeEvent, useState } from "react";
 
-import { userReducer } from "../../simple-redux/userReducer";
-import { initialState } from "../../simple-redux/initialState";
-import { loadUsers } from "../../simple-redux/userActions";
+import { reducer, initialState, loadUsers } from "../../simple-redux/";
 
 import "./App.css";
 
@@ -10,7 +8,7 @@ import { UsersList } from "../users";
 import { Input } from "../common/input";
 
 export const App: FC<any> = () => {
-  const [state, dispatch] = useReducer(userReducer, initialState);
+  const [state, dispatch] = useReducer(reducer, initialState);
   const [inputValue, setInputValue] = useState("");
 
   useEffect(() => {
