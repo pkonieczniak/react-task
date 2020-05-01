@@ -6,7 +6,7 @@ import { loadUsers } from "../../simple-redux/userActions";
 
 import "./App.css";
 
-import { Spinner } from "../common";
+import { UsersList } from "../users";
 
 export const App: FC<any> = () => {
   const [state, dispatch] = useReducer(userReducer, initialState);
@@ -18,7 +18,11 @@ export const App: FC<any> = () => {
   return (
     <div>
       <h1>Users</h1>
-      {state.isLoading ? <Spinner /> : null}
+      <UsersList
+        users={state.users}
+        error={state.error}
+        isLoading={state.isLoading}
+      />
     </div>
   );
 };
