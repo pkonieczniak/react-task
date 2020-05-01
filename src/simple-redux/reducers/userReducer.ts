@@ -3,12 +3,13 @@ import {
   LOADING_USERS_ERROR,
   LOADING_USERS_SUCCESS,
 } from "../actions/actionTypes";
+import { Reducer } from "react";
 import { InitialState } from "../../models/initialState";
 import { UserAction } from "../../models/userAction";
 
-export const userReducer = (
-  state: InitialState,
-  { type, payload }: UserAction
+export const userReducer: Reducer<InitialState, UserAction> = (
+  state,
+  { type, payload }
 ) => {
   const { error, users } = payload;
 

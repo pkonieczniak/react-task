@@ -1,7 +1,7 @@
 import { User } from "./user";
 
 export interface InitialState {
-  users: User[];
+  users: User[] | undefined;
   isLoading: boolean;
-  error: string;
+  error: string | undefined;
 }
